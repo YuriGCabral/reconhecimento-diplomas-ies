@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #f5f6fa;
+  color: #222;
+}
+
+.ies-header {
+  background: #1a1f71;
+  color: #fff;
+  text-align: center;
+  padding: 32px 0 18px 0;
+}
+
+
+.ies-logo {
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+.ies-header h1 {
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.ies-footer {
+  background: #1a1f71;
+  text-align: center;
+  padding: 28px 0 20px 0;
+  font-size: 1.08em;
+  color: #fff;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: 40px;
+}
+
+.ies-main-central {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 70vh;
+  background: #f5f6fa;
+  padding: 40px 0 0 0;
+}
+
+.ies-retangulos {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
+  gap: 36px;
+}
+
+.ies-vertical-card {
+  background: #fff;
+  color: #1a1f71;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(26,31,113,0.07);
+  padding: 32px 24px;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid #6c0ba9;
+  margin-top: 0;
+}
+
+.ies-vertical-card h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2em;
+  color: #6c0ba9;
+  font-weight: 700;
+}
+
+.ies-vertical-card ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 1.08em;
+  line-height: 1.7;
+}
+
+.ies-vertical-card form {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.ies-vertical-card input[type="text"] {
+  padding: 10px;
+  width: 95%;
+  border-radius: 7px;
+  border: 1.5px solid #6c0ba9;
+  margin-bottom: 14px;
+  font-size: 1em;
+}
+
+.ies-btn {
+  padding: 10px 28px;
+  background: #6c0ba9;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.ies-btn-primary {
+  background: #ffd600;
+  color: #1a1f71;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.ies-btn-primary:hover,
+.ies-btn-primary:focus {
+  background: #6c0ba9;
+  color: #fff;
+}
+
+.ies-bi-central {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(26,31,113,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 500px;
+  max-width: 800px;
+  padding: 24px;
+}
+
+.ies-bi-central iframe {
+  width: 600px;
+  height: 450px;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+}
+
+@media (max-width: 1200px) {
+  .ies-retangulos {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .ies-bi-central iframe {
+    width: 95vw;
+    min-width: 300px;
+    max-width: 98vw;
+    height: 300px;
+  }
+  .ies-bi-central {
+    min-width: 0;
+    max-width: 100vw;
+    width: 100%;
+  }
+}
+

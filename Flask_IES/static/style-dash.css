@@ -1,0 +1,289 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  background: #f5f6fa;
+  color: #222;
+}
+
+/* Header atualizado */
+.ies-header {
+  position: relative;         /* para posicionar botão */
+  background: transparent;    /* fundo transparente */
+  color: #1a1f71;             /* cor do texto */
+  text-align: left;           /* título à esquerda */
+  padding: 20px 40px;         /* espaçamento */
+  border: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;        /* centraliza verticalmente */
+  justify-content: space-between; /* título à esquerda, botão à direita */
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.ies-header h1 {
+  margin: 0;
+  font-size: 2.2em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: inherit;
+}
+
+.ies-logo {
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+.ies-footer {
+  background: #1a1f71;
+  text-align: center;
+  padding: 28px 0 20px 0;
+  font-size: 1.08em;
+  color: #fff;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  margin-top: 40px;
+}
+
+.ies-main-central {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 70vh;
+  background: #f5f6fa;
+  padding: 40px 0 0 0;
+}
+
+.ies-retangulos {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
+  gap: 36px;
+}
+
+.ies-vertical-card {
+  background: #fff;
+  color: #1a1f71;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(26,31,113,0.07);
+  padding: 32px 24px;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 2px solid #6c0ba9;
+  margin-top: 0;
+}
+
+.ies-vertical-card h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.2em;
+  color: #6c0ba9;
+  font-weight: 700;
+}
+
+.ies-vertical-card ul {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 1.08em;
+  line-height: 1.7;
+}
+
+.ies-vertical-card form {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.ies-vertical-card input[type="text"] {
+  padding: 10px;
+  width: 95%;
+  border-radius: 7px;
+  border: 1.5px solid #6c0ba9;
+  margin-bottom: 14px;
+  font-size: 1em;
+}
+
+/* Botões gerais */
+.ies-btn {
+  padding: 10px 28px;
+  background: #6c0ba9;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Botão amarelo principal */
+.ies-btn-primary {
+  background: #ffd600;
+  color: #1a1f71;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.ies-btn-primary:hover,
+.ies-btn-primary:focus {
+  background: #6c0ba9;
+  color: #fff;
+}
+
+/* Botão vermelho (Sair, Deletar) */
+.ies-btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 28px;
+  font-weight: bold;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  /* Alinha o botão à esquerda dentro do container */
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.ies-btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+/* Container para botões dentro das abas (ex: Sair + Novo Processo) */
+.ies-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 180px;
+}
+
+/* Tabela */
+.tab-btns {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.tab-btn {
+  background: #6c0ba9;
+  color: #fff;
+  border: none;
+  border-radius: 7px 7px 0 0;
+  padding: 10px 30px;
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-right: 4px;
+  transition: background 0.2s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: #ffd600;
+  color: #1a1f71;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+th,
+td {
+  font-size: 0.97em;
+}
+
+table {
+  table-layout: auto;
+}
+
+/* Alinha os botões de ação à direita e evita quebra de linha */
+td.actions-cell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Estilo dos botões Editar e Deletar */
+.ies-btn-edit {
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 4px;
+  border: none;
+  transition: background 0.2s;
+}
+
+.ies-btn-edit:hover {
+  background-color: #0056b3;
+}
+
+.ies-btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size: 0.9em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 4px;
+  border: none;
+  transition: background 0.2s;
+}
+
+.ies-btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+.ies-bi-central {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(26, 31, 113, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 500px;
+  max-width: 800px;
+  padding: 24px;
+}
+
+.ies-bi-central iframe {
+  width: 600px;
+  height: 450px;
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+}
+
+@media (max-width: 1200px) {
+  .ies-retangulos {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .ies-bi-central iframe {
+    width: 95vw;
+    min-width: 300px;
+    max-width: 98vw;
+    height: 300px;
+  }
+  .ies-bi-central {
+    min-width: 0;
+    max-width: 100vw;
+    width: 100%;
+  }
+}

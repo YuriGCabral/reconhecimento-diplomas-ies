@@ -1,0 +1,63 @@
+.form-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(26,31,113,0.09);
+  padding: 36px 28px 28px 28px;
+  max-width: 700px;
+  margin: 60px auto;
+}
+.form-card h2 {
+  color: #6c0ba9;
+  text-align: center;
+  margin-bottom: 22px;
+}
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #1a1f71;
+  margin-bottom: 6px;
+  margin-top: 16px;
+  letter-spacing: 0.3px;
+}
+.form-input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #6c0ba9;
+  border-radius: 7px;
+  font-size: 1em;
+  margin-bottom: 5px;
+  background: #f8f9fa;
+  transition: border 0.2s;
+}
+.form-input:focus {
+  border: 2px solid #ffd600;
+  outline: none;
+  background: #fffbe6;
+}
+.ies-btn {
+  display: inline-block;
+  background: #6c0ba9;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1.08em;
+  cursor: pointer;
+  padding: 13px 0;
+  width: 100%;
+  margin-top: 22px;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(108,11,169,0.07);
+  letter-spacing: 0.5px;
+}
+
+.ies-btn-primary {
+  background: #ffd600;
+  color: #1a1f71;
+}
+
+.ies-btn-primary:hover,
+.ies-btn-primary:focus {
+  background: #6c0ba9;
+  color: #fff;
+}

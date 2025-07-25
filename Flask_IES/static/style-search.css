@@ -1,0 +1,8 @@
+.grafico-area { display: flex; flex-wrap: wrap; gap: 30px; margin: 30px 0; justify-content: center; }
+.grafico-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(26,31,113,0.08); padding: 18px 22px; }
+.grafico-card img { max-width: 330px; }
+.tabela-proc { margin-top: 24px; width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; }
+.tabela-proc th, .tabela-proc td { padding: 7px 10px; border-bottom: 1px solid #eee; font-size: 0.98em; }
+.tabela-proc th { background: #6c0ba9; color: #fff; }
+.tabela-proc tr:last-child td { border-bottom: none; }
+.num-finalizados { font-size: 1.15em; color: #6c0ba9; font-weight: bold; margin-top: 16px; }
