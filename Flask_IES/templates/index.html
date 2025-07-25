@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Reconhecimento Nacional de Diplomas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="ies-header">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Reconhecimento Nacional de Diplomas" class="ies-logo">
+    <h1>Reconhecimento Nacional de Diplomas</h1>
+  </header>
+  <main class="ies-main-central">
+    <div class="ies-retangulos">
+      <section class="ies-vertical-card">
+        <h2>O que você encontra aqui?</h2>
+        <ul>
+          <li>Estatísticas detalhadas sobre IES e Processos</li>
+          <li>Distribuição por instituição, país, curso, região e situação</li>
+          <li>Busca personalizada por IES</li>
+        </ul>
+      </section>
+      <section class="ies-bi-central">
+      <iframe title="Sexta" width="600" height="373.5"
+      src="https://app.powerbi.com/view?r=eyJrIjoiNTE5YmZhZWItMDBmMi00MzI5LTgyZDUtOTBmOGEyMjVkNjcwIiwidCI6ImI2N2ZlNGVmLTVlNTgtNGJmYS04OGU3LWJjMmIxNmI4Y2FjYyJ9"
+      frameborder="0" allowFullScreen="true"></iframe>
+    </section>
+      <section class="ies-vertical-card">
+        <h2>Buscar IES</h2>
+        <form action="{{ url_for('resultado') }}" method="get">
+          <input type="text" id="ies" name="ies" placeholder="Digite o nome da IES" required>
+          <button type="submit" class="ies-btn">Buscar</button>
+        </form>
+        <a href="{{ url_for('admin_login') }}" class="ies-btn ies-btn-primary" style="margin-top: 30px;">Área Administrativa</a>
+      </section>
+    </div>
+  </main>
+  <footer class="ies-footer">
+    &copy; 2025 Reconhecimento Nacional de Diplomas
+  </footer>
+</body>
+</html>
