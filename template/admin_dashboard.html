@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Administrativo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style-dash.css') }}">
+  <style>
+    .tab-btns { margin-bottom: 24px; text-align: center; }
+    .tab-btn { background: #6c0ba9; color: #fff; border: none; border-radius: 7px 7px 0 0; padding: 10px 30px; font-weight: bold; font-size: 1.1em; cursor: pointer; margin-right: 4px; transition: background 0.2s; }
+    .tab-btn.active, .tab-btn:hover { background: #ffd600; color: #1a1f71; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+    th, td { font-size: 0.97em; padding: 8px 16px; } /* aumento de espaçamento entre colunas */
+    table { table-layout: auto; }
+
+    /* Ajuste do header */
+    .ies-header {
+      text-align: left;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 20px;
+    }
+    .ies-header h1 {
+      margin: 0;
+      padding: 0;
+      color: #1a1f71;
+    }
+
+    /* Alinha os botões de ação à direita e evita quebra de linha */
+    td.actions-cell {
+      text-align: right;
+      white-space: nowrap;
+    }
+    /* Estilo dos botões Editar e Deletar */
+    .ies-btn {
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 0.9em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 4px;
+      border: none;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .ies-btn-edit {
+      background-color: #6c0ba9;
+      color: white;
+    }
+    .ies-btn-edit:hover {
+      background-color: #0056b3;
+    }
+    .ies-btn-danger {
+      background-color: #dc3545;
+      color: white;
+      margin-bottom: 12px; /* espaço abaixo do botão sair */
+      display: inline-block;
+    }
+    .ies-btn-danger:hover {
+      background-color: #a71d2a;
+    }
+
+    /* Container para botões acima da tabela */
+    .ies-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 12px;
+      max-width: 180px;
+    }
+  </style>
+  <script>
+    function showTab(tab) {
+      document.getElementById('tab-ies').classList.remove('active');
+      document.getElementById('tab-processos').classList.remove('active');
+      document.getElementById('btn-ies').classList.remove('active');
+      document.getElementById('btn-processos').classList.remove('active');
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.getElementById('btn-' + tab).classList.add('active');
+    }
+    window.onload = function() { showTab('ies'); }
+  </script>
+</head>
+<body>
+  <header class="ies-header">
+    <h1>Painel Administrativo</h1>
+  </header>
+  <main class="ies-main">
+    <div class="tab-btns">
+      <button id="btn-ies" class="tab-btn" onclick="showTab('ies')">IES Cadastradas</button>
+      <button id="btn-processos" class="tab-btn" onclick="showTab('processos')">Processos</button>
+    </div>
+
+    <!-- Tabela IES -->
+    <div id="tab-ies" class="tab-content">
+      <div class="ies-actions">
+        <a href="{{ url_for('logout') }}" class="ies-btn ies-btn-danger">Sair</a>
+        <a href="{{ url_for('novo_ies') }}" class="ies-btn ies-btn-primary">Nova IES</a>
+      </div>
+      <table class="ies-table">
+        <thead>
+          <tr>
+            <th>Sigla</th>
+            <th>Nome</th>
+            <th>Tipo - Data Adesão</th>
+            <th>Categoria Administrativa</th>
+            <th>Região</th>
+            <th>UF</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in ies_list %}
+          <tr>
+            <td>{{ i.sigla }}</td>
+            <td>{{ i.nome }}</td>
+            <td>{{ i.tipo_data_adesao }}</td>
+            <td>{{ i.categoria_administrativa }}</td>
+            <td>{{ i.regiao }}</td>
+            <td>{{ i.uf }}</td>
+            <td class="actions-cell">
+              <form method="get" action="{{ url_for('editar_ies', id=i.id) }}" style="display:inline;">
+                <button type="submit" class="ies-btn ies-btn-edit">Editar</button>
+              </form>
+              <form action="{{ url_for('deletar_ies', id=i.id) }}" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza?')">
+                <button type="submit" class="ies-btn ies-btn-danger">Deletar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tabela Processos -->
+    <div id="tab-processos" class="tab-content">
+      <div class="ies-actions">
+        <a href="{{ url_for('logout') }}" class="ies-btn ies-btn-danger">Sair</a>
+        <a href="{{ url_for('novo_processo') }}" class="ies-btn ies-btn-primary">Novo Processo</a>
+      </div>
+      <table class="ies-table" style="font-size:0.93em;">
+        <thead>
+          <tr>
+            <th>País IES Estrangeira</th>
+            <th>Nome IES Estrangeira</th>
+            <th>Nome Curso Estrangeiro</th>
+            <th>Sigla IES</th>
+            <th>Nome IES</th>
+            <th>Etapa</th>
+            <th>Situação Processo</th>
+            <th>Curso</th>
+            <th>No Solicitação</th>
+            <th>Tipo Solicitação</th>
+            <th>Data Última Mov.</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in processos %}
+          <tr>
+            <td>{{ p.pais_ies_estrangeira }}</td>
+            <td>{{ p.no_ies_estrangeira }}</td>
+            <td>{{ p.ds_nome_curso_estrangeiro }}</td>
+            <td>{{ p.sg_ies }}</td>
+            <td>{{ p.no_ies }}</td>
+            <td>{{ p.etapa }}</td>
+            <td>{{ p.situacao_processo }}</td>
+            <td>{{ p.ds_curso }}</td>
+            <td>{{ p.no_solicitacao }}</td>
+            <td>{{ p.tp_solicitacao }}</td>
+            <td>{{ p.dt_ultima_mov }}</td>
+            <td class="actions-cell">
+              <form method="get" action="{{ url_for('editar_processo', id=p.id) }}" style="display:inline;">
+                <button type="submit" class="ies-btn ies-btn-edit">Editar</button>
+              </form>
+              <form action="{{ url_for('deletar_processo', id=p.id) }}" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza?')">
+                <button type="submit" class="ies-btn ies-btn-danger">Deletar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
