@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastrar Nova IES</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style-crud.css') }}">
+</head>
+<body>
+  <main>
+    <div class="form-card">
+      <h2>Cadastrar Nova IES</h2>
+      <form method="post">
+        <label class="form-label" for="sigla">Sigla IES</label>
+        <input class="form-input" id="sigla" name="sigla" placeholder="Sigla IES">
+
+        <label class="form-label" for="nome">Nome IES</label>
+        <input class="form-input" id="nome" name="nome" placeholder="Nome IES" required>
+
+        <label class="form-label" for="tipo_data_adesao">Tipo - Data Adesão</label>
+        <input class="form-input" id="tipo_data_adesao" name="tipo_data_adesao" placeholder="Tipo - Data Adesão">
+
+        <label class="form-label" for="categoria_administrativa">Categoria Administrativa</label>
+        <input class="form-input" id="categoria_administrativa" name="categoria_administrativa" placeholder="Categoria Administrativa">
+
+        <label class="form-label" for="regiao">Região</label>
+        <input class="form-input" id="regiao" name="regiao" placeholder="Região">
+
+        <label class="form-label" for="uf">UF</label>
+        <input class="form-input" id="uf" name="uf" placeholder="UF">
+
+        <button type="submit" class="ies-btn ies-btn-primary">Salvar</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
